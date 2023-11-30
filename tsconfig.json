@@ -1,14 +1,20 @@
 {
-  "extends": "./.svelte-kit/tsconfig.json",
+  "files": [
+    "./src/envWrite.js",
+    "./src/index.js",
+  ],
   "compilerOptions": {
     "allowJs": true,
     "checkJs": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
+    "declaration": true,
     "strict": true,
-    "types": ["node"]
+    "outDir": "tsc",
+    "declarationMap": true,
+    "module": "NodeNext",
+    "target": "ESNext",
   }
 }

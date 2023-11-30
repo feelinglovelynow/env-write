@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 
+
 (async function main() {
   const PATH = '.env'
   let text = await fs.promises.readFile(PATH, 'utf-8')
@@ -8,17 +9,17 @@ import fs from 'node:fs'
   for (const [ iArgv, request ] of process.argv.entries()) { // loop bash arguments
     if (iArgv > 1) { // skip first few arguments
       let lineFound = false
-      const [ key, value ] = request.split('=')
+      const [key, value] = request.split('=')
 
-      for (const [ iLine, line ] of lines.entries()) { // loop lines in .env file
+      for (const [iLine, line] of lines.entries()) { // loop lines in .env file
         if (line.match(key)) { // if key is found in line
           lineFound = true
-          lines[iLine] = `${ key }='${ value }'`
+          lines[iLine] = `${key}='${value}'`
           break
         }
       }
 
-      if (!lineFound) lines.push(`${ key }='${ value }'`) // if line is not found => add line 
+      if (!lineFound) lines.push(`${key}='${value}'`) // if line is not found => add line 
     }
   }
 
